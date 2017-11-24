@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <?php include('header_12.php'); ?>
+    <body>
+        <div id="main" class="site-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ol class="menu-list">
+                            <li class="home"><a href="<?php echo BASE_URL . 'admin_controller/search_requirements'; ?>">Home</a></li>
+                            <li class="active">ADD PROPERTY</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-content">
+                            <h3 class="content-title">ADD PROPERTY</h3>
+                            <form action="<?php echo BASE_URL; ?>admin_controller/property_pdf_page/" method="post" enctype="multipart/form-data">
+                                <div class="form-group full-width">
+                                    <label for="Name" class="label-1">Address Line1<span style="color:red">*</span></label>
+                                    <input type="text" name="address_line1" id="tenantName" value="<?php if (isset($_POST['address_line1'])) echo $_POST['address_line1']; ?>" class="form-control" placeholder=""/>
+                                    <div class="abc"> <span class="error" style="color:red"><?php
+                                            if (isset($result['address_line1'])) {
+                                                echo $result['address_line1'];
+                                            }
+                                            ?></span></div>
+                                </div> 
+
+
+                                <div class="form-group full-width">
+                                    <label for="Name" class="label-1">Address Line2</label>
+                                    <input type="text" name="address_line2" id="tenantName" value="<?php if (isset($_POST['address_line2'])) echo $_POST['address_line2']; ?>" class="form-control" placeholder=""/>               
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="Name" class="label-1">Address Line3</label>
+                                    <input type="text" name="address_line3" id="tenantName" value="<?php if (isset($_POST['address_line3'])) echo $_POST['address_line3']; ?>" class="form-control" placeholder=""/>               
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="Name" class="label-1">Town<span style="color:red">*</span></label>
+                                    <input type="text" name="town" id="tenantName" value="<?php if (isset($_POST['town'])) echo $_POST['town']; ?>" class="form-control" placeholder=""/> 
+                                    <div class="abc"><span class="error" style="color:red"><?php
+                                            if (isset($result['town'])) {
+                                                echo $result['town'];
+                                            } if (isset($result['town_name_error'])) {
+                                                echo $result['town_name_error'];
+                                            }
+                                            ?></span></div>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="Name" class="label-1">County</label>
+                                    <select name="country" value="<?php if (isset($_POST['country'])) echo $_POST['country']; ?>">
+                                        <option value="">----please select----</option>
+                                        <script type="text/javascript">
+                                            printCountryOptions();
+                                        </script>
+                                    </select>    
+                                </div>
+
+
+                                <div class="form-group full-width">
+                                    <label for="Name" class="label-1">Post Code</label>
+                                    <input type="text" name="postcode" id="tenantName" value="<?php if (isset($_POST['postcode'])) echo $_POST['postcode']; ?>" class="form-control" placeholder=""/>               
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="Name" class="label-1">Floor Area<span style="color:red">*</span></label>
+                                    <input type="text" name="floor_area" id="tenantName" value="<?php if (isset($_POST['floor_area'])) echo $_POST['floor_area']; ?>" class="form-control" placeholder=""/> 
+                                    <div class="abc"><span class="error" style="color:red"><?php
+                                            if (isset($result['floor'])) {
+                                                echo $result['floor'];
+                                            }
+                                            ?></span></div>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="Name" class="label-1">Use Class</label>
+                                    <select name="use_class" value="<?php if (isset($_POST['use_class'])) echo $_POST['use_class']; ?>">
+                                        <option value="A1" <?php if(isset($_POST['use_class']) && $_POST['use_class']=='A1'){ echo 'selected'; }?>>A1</option>
+                                        <option value="A2" <?php if(isset($_POST['use_class']) && $_POST['use_class']=='A2'){ echo 'selected'; }?>>A2</option>
+                                        <option value="A3" <?php if(isset($_POST['use_class']) && $_POST['use_class']=='A3'){ echo 'selected'; }?>>A3</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="Name" class="label-1">Photo</label>
+
+                                
+                                    <input type="file" name="image" id="tenantName" class="form-control" placeholder=""/>
+
+
+
+               
+                                </div>
+                                
+                                   <div class="form-group full-width">
+                                    <button type="submit"  name="submit" id="publish"><i class="fa fa-floppy-o"></i> Send Pdf</button>
+          
+                                    <br style="clear:both" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+        $('.form-file').change(function () {
+       $(this).next('.ahah-processed').click();
+            });
+
+
+
+        </script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="js/ie10-viewport-bug-workaround.js"></script>
+        <?php include('footer_12.php'); ?>  
+    </body>
+</html>
